@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #001;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 1s-in-out;
+        }
+
+        h1 {
+            color: #eef;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            font-weight: normal;
+            text-transform: uppercase;
+            text-shadow: 0 0 1rem #def;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5vw;
+        }
+
+        .aliens {
+            font-size: 10vw; /* Dynamic size for COMMUNITY */
+        }
+
+        .aliens span {
+            animation: turn 10s ease-in;
+            display: inline-block;
+        }
+
+        @keyframes turn {
+            0% {
+                transform: scaleY(1.2) rotateY(90deg);
+                text-shadow: 0 0 0 #def;
+            }
+            100% {
+                transform: scaleY(1.2) rotateY(0);
+                text-shadow: 0 0 1rem #def;
+            }
+        }
+
+        .referral {
+            font-size: 8vw; /* Slightly smaller than COMMUNITY */
+        }
+
+        .referral span {
+            animation: none; /* No animation for REFERRAL */
+        }
+
+        .half {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .half img {
+            object-fit: cover; /* Make image cover the entire div */
+            width: 100%; /* Fill the width of the div */
+            height: 100%; /* Fill the height of the div */
+        }
+
+        .half.right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #25D366; /* WhatsApp green */
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #128C7E; /* Darker WhatsApp green */
+        }
+    </style>
+</head>
+<body id="content">
+
+    <!-- First Page (Community and Referral Text) -->
+    <div id="page1">
+        <h1 class="aliens">
+            <span>R</span>
+            <span>E</span>
+            <span>F</span>
+            <span>E</span>
+            <span>R</span>
+            <span>R</span>
+            <span>A</span>
+            <span>L</span>
+        </h1>
+
+        <h1 >
+            <span>C</span>
+            <span>O</span>
+            <span>M</span>
+            <span>M</span>
+            <span>U</span>
+            <span>N</span>
+            <span>I</span>
+            <span>T</span>
+            <span>Y</span>
+        </h1>
+    </div>
+
+    <!-- Second Page (Images and WhatsApp Button) -->
+    <div id="page2" style="display: none;">
+        <div class="half left">
+            <img src="left-image.png" alt="Left Image">
+        </div>
+        <div class="half right">
+            <img src="right-image.png" alt="Right Image">
+            <a href="https://chat.whatsapp.com/your-group-link" target="_blank" class="btn">Join WhatsApp Group</a>
+        </div>
+    </div>
+
+    <script>
+        // Switch between the pages after 10 seconds
+        setTimeout(function() {
+            document.getElementById('page1').style.display = 'none';
+            document.getElementById('page2').style.display = 'flex';
+            document.body.style.backgroundColor = '#000'; // Black background
+            document.documentElement.style.backgroundColor = '#000'; // Black background
+        }, 10000); // 10000 milliseconds = 10 seconds
+    </script>
+</body>
+</html>
